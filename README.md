@@ -9,25 +9,25 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
+    #include <stdio.h>
+    
+    int main() {
+        float num = 23.65;
+        int *ptr = (int*)&num;
+    
+        *ptr = 25;
+    
+        printf("Value after conversion: %.2f\n", num);
+    
+        return 0;
+    }
 
 ## OUTPUT:
- 	
-
-
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/cfad0b36-fa78-45ac-b418-a36d584a8b57)
 
 
 ## RESULT:
 Thus the program to convert a 23.65 into 25 using pointer has been executed successfully.
- 
- 
-
 
 # EX-22-FUNCTIONS AND STORAGE CLASS
 
@@ -45,13 +45,28 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
-## OUTPUT:
-         		
-## RESULT:
+    #include <stdio.h>
+    
+    long long product(int n);
+    
+    int main() {
+        int n = 12;
+        printf("Product of first 12 natural numbers: %lld\n", product(n));
+        return 0;
+    }
+    
+    long long product(int n) {
+        if (n == 1)
+            return 1;
+        else
+            return n * product(n - 1);
+    }
 
+## OUTPUT:
+![image](https://github.com/user-attachments/assets/b5381950-6703-4c36-ac6d-87ae9d0184f1)
+
+## RESULT:
 Thus the program has been executed successfully.
- 
- 
 
 
 # EX-23-ARRAYS AND ITS OPERATIONS
@@ -68,18 +83,39 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
-
-
+    #include <stdio.h>
+    
+    int main() {
+        int rows, cols;
+    
+        printf("Enter number of rows and columns: ");
+        scanf("%d%d", &rows, &cols);
+    
+        int matrix[rows][cols];
+    
+        printf("Enter elements of the matrix:\n");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                scanf("%d", &matrix[i][j]);
+            }
+        }
+    
+        for (int i = 0; i < rows; i++) {
+            int sum = 0;
+            for (int j = 0; j < cols; j++) {
+                sum += matrix[i][j];
+            }
+            printf("Sum of row %d = %d\n", i + 1, sum);
+        }
+    
+        return 0;
+    }
 
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/a7d7d11c-8e91-4571-b554-29e0f5b1e611)
 
-
- 
- 
-
- ## RESULT
- 
-
+ ## RESULT:
+ Thus the program has been executed successfully.
 
 # EX-24-STRINGS
 
@@ -96,21 +132,35 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
+    #include <stdio.h>
+    #include <string.h>
+    
+    int main() {
+        char str[100];
+        int rows;
+    
+        printf("Enter a string: ");
+        scanf("%s", str);
+    
+        printf("Enter number of rows: ");
+        scanf("%d", &rows);
+    
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 0; j < strlen(str); j++) {
+                printf("%c ", str[j]);
+            }
+            printf("\n");
+        }
+    
+        return 0;
+    }
 
-
- ## OUTPUT
-
- 
+ ## OUTPUT:
+ ![image](https://github.com/user-attachments/assets/47b76e81-f7f3-4b11-8cdd-225ebf9df04c)
 
 ## RESULT
 
 Thus the C program to String process executed successfully
- 
-
- 
-.
-
-
 
 # EX -25 –DISPLAYING ARRAYS USING POINTERS
 ## AIM
@@ -132,13 +182,28 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+    #include <stdio.h>
+    
+    int main() {
+        int arr[6];
+        int *ptr = arr;
+    
+        printf("Enter 6 integer elements:\n");
+        for (int i = 0; i < 6; i++) {
+            scanf("%d", (ptr + i));
+        }
+    
+        printf("The elements are:\n");
+        for (int i = 0; i < 6; i++) {
+            printf("%d ", *(ptr + i));
+        }
+    
+        return 0;
+    }
 
 ## OUTPUT
-
- 
+![image](https://github.com/user-attachments/assets/a3bef94d-5131-4539-8809-df39ba1bae95)
 
 ## RESULT
 
 Thus the C program to read and display an array of any 6 integer elements using pointer has been executed
-
-
